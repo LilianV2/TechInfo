@@ -16,6 +16,7 @@ class ArticlesController extends AbstractController
             'article' => $manager->getAll()
         ]);
     }
+
     public function view($id)
     {
         $manager = new ArticleManager();
@@ -60,12 +61,12 @@ class ArticlesController extends AbstractController
 
 
             } else {
-                echo "<div class='warning'> Mot de passe non identique. </div>";
+                echo "<div> Mot de passe non identique. </div>";
                 $this->display('login/login');
             }
         }
         else {
-            echo "<div class='warning'> PAS CONNECTER </div>";
+            echo "<div> PAS CONNECTER </div>";
             $this->display('login/login');
         }
     }

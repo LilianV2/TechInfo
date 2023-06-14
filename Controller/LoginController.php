@@ -48,7 +48,7 @@ class LoginController extends AbstractController
 
     public function log()
     {
-        $sql = "SELECT id, pseudo, password, email FROM user WHERE email = :email";
+        $sql = "SELECT id, pseudo, password, email, is_admin FROM user WHERE email = :email";
         $req = DB::getInstance()->prepare($sql);
 
         $email = strip_tags($_POST['email'] ?? ''); // delete HTML tags
@@ -72,6 +72,7 @@ class LoginController extends AbstractController
                             "name" => $userData['pseudo'],
                             "email" => $userData['email'],
                             "id_user" => $userData['id'],
+                            "is_admin" => $userData['is_admin']
                         ];
 
                         header("Location: /home");

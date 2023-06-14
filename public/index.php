@@ -1,21 +1,35 @@
 <?php
 
-// Inclusion des classes autres.
+// Include other classes
 use App\Controller\RootController;
 
+
 require_once dirname(__FILE__) . '/../Model/DB.php';
+
+// Include Controllers
 require_once dirname(__FILE__) . '/../Controller/AbstractController.php';
 require_once dirname(__FILE__) . '/../Controller/RootController.php';
 require_once dirname(__FILE__) . '/../Controller/ArticlesController.php';
+require_once dirname(__FILE__) . '/../Controller/ArticlesPcController.php';
+require_once dirname(__FILE__) . '/../Controller/CartController.php';
+require_once dirname(__FILE__) . '/../Controller/UserController.php';
 
-// Inclusion des entités.
+// Include Entities
 require_once dirname(__FILE__) . '/../Model/Entity/User.php';
+require_once dirname(__FILE__) . '/../Model/Entity/Cart.php';
 require_once dirname(__FILE__) . '/../Model/Entity/Article.php';
+require_once dirname(__FILE__) . '/../Model/Entity/ArticlePc.php';
 
-// Inclusion des managers.
+// Include Managers
 require_once dirname(__FILE__) . '/../Model/Manager/UserManager.php';
 require_once dirname(__FILE__) . '/../Model/Manager/ArticleManager.php';
+require_once dirname(__FILE__) . '/../Model/Manager/ArticlePcManager.php';
+require_once dirname(__FILE__) . '/../Model/Manager/CartManager.php';
+
 require_once dirname(__FILE__) . '/router.php';
+
+
+
 
 
 /*

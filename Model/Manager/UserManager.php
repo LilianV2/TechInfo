@@ -8,7 +8,7 @@ use App\Model\Entity\User;
 class UserManager
 {
     /**
-     * Retourne tous les utilisateurs de la base de données.
+     * Return all the Users from the database
      * @return array
      */
     public function getAll(): array
@@ -24,6 +24,7 @@ class UserManager
                     ->setPassword($userData['password'])
                     ->setEmail($userData['email'])
                     ->setPseudo($userData['pseudo'])
+                    ->setIsAdmin((bool)$userData['is_admin'])
                 ;
             }
         }
@@ -33,16 +34,16 @@ class UserManager
 
     public function isAdmin(User $user): bool {
         if ($user->isAdmin()) {
-            // Si la propriété $is_admin de l'objet User est true,
-            // alors on retourne true sans interroger la base de données.
+            // if $is_admin property of the object User is true,
+            // then we return true without asking the database
             return true;
         } else {
             if (isset($_SESSION["connected"]) && $_SESSION["connected"]) {
-                $id = $_SESSION['user']['id_user']; // Récupère l'id depuis la session
+                $id = $_SESSION['user']['id_user']; // get ID from the session
                 $userConnected = $this->getUserById($id);
                 if ($userConnected && $userConnected->isAdmin()) {
-                    // Si l'utilisateur a le rôle d'administrateur enregistré en BDD,
-                    // alors on met à jour la propriété $is_admin de l'objet User
+                    // if the user is admin in database
+                    // then we update $is_admin property of the User object
                     $user->setIsAdmin(true);
                     return true;
                 }
@@ -69,11 +70,20 @@ class UserManager
                     ->setId((int)$userData['id'])
                     ->setPassword($userData['password'])
                     ->setEmail($userData['email'])
-                    ->setPseudo($userData['pseudo']);
+                    ->setPseudo($userData['pseudo'])
+                    ->setIsAdmin((bool)$userData['is_admin'])
+                    ;
             }
         }
         return null;
     }
 
+    public function deleteUserById(int $id): bool
+    {
+        $sql = "DELETE FROM user WHERE id = :id";
+        $stmt = DB::getInstance()->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
 
 }

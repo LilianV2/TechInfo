@@ -2,30 +2,30 @@
 
 namespace App\Model\Entity;
 
-class User
-{
-    private int $id;
-    private string $email;
-    private string $pseudo;
-    private string $password;
-//    private bool $isAdmin = false;
-//
-//    /**
-//     * @return bool
-//     */
-//    public function isAdmin(): bool
-//    {
-//        return $this->isAdmin;
-//    }
-//
-//    /**
-//     * @param bool $isAdmin
-//     */
-//    public function setIsAdmin(bool $isAdmin): self
-//    {
-//        $this->isAdmin = $isAdmin;
-//        return $this;
-//    }
+    class User
+    {
+        private int $id;
+        private string $email;
+        private string $pseudo;
+        private string $password;
+        private bool $isAdmin = false;
+
+    /**
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return $this->isAdmin;
+    }
+
+    /**
+     * @param bool $isAdmin
+     */
+    public function setIsAdmin(bool $isAdmin): self
+    {
+        $this->isAdmin = $isAdmin;
+        return $this;
+    }
 
     /**
      * @return int
