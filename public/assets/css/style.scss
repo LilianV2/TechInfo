@@ -320,7 +320,7 @@ header {
 
 .comment {
 
-  margin-top: 5rem;
+  margin-top: 13rem;
   width: 100%;
   height: 90rem;
   display: flex;
@@ -623,7 +623,6 @@ header {
   flex-direction: column;
   justify-content: center;
   width: 95%;
-  height: 100%;
   background: $mainColor;
   font-size: 2rem;
   margin-top: 10rem;
@@ -786,6 +785,52 @@ header {
 
   input {
     margin-left: 8rem;
+  }
+}
+
+#list {
+  font-size: 2rem;
+  background: $cards;
+  width: 70%;
+  border-radius: 9px;
+  padding: 3rem;
+
+  .box-list {
+    background: $secColor;
+    border-radius: 9px 0 9px 0;
+    padding: 3rem;
+
+    thead {
+      background: $cards;
+      tr th {
+        padding: 1rem;
+      }
+    }
+
+    table {
+      margin: 1rem;
+      width: 100%;
+
+      tbody tr td{
+        text-align: center;
+        padding: 1rem;
+        background: $mainColor;
+        border-radius: 4px 0 4px 0;
+      }
+    }
+  }
+
+  .footer-list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    width: 90%;
+
+    a {
+      padding: 1rem;
+      background: $mainColor;
+      border-radius: 7px;
+    }
   }
 }
 

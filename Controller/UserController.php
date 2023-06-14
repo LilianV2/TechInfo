@@ -12,19 +12,29 @@ class UserController extends AbstractController
      */
     public function index()
     {
-        $manager = new UserManager();
+//        $manager = new UserManager();
+//
+//        // Vérifier si une suppression d'utilisateur a été effectuée
+//        if (isset($_GET['delete']) && !empty($_GET['delete'])) {
+//            $deleteId = (int)$_GET['delete'];
+//            $manager->deleteUserById($deleteId);
+//            // Rediriger vers la page du listing des utilisateurs après la suppression
+//            header("Location: /user");
+//            exit();
+//        }
+//
+//        $this->display('user/listing', [
+//            'users' => $manager->getAll()
+//        ]);
 
-        // Vérifier si une suppression d'utilisateur a été effectuée
-        if (isset($_GET['delete']) && !empty($_GET['delete'])) {
-            $deleteId = (int)$_GET['delete'];
-            $manager->deleteUserById($deleteId);
-            // Rediriger vers la page du listing des utilisateurs après la suppression
-            header("Location: /user");
-            exit();
-        }
+        $manager = new UserManager();
+        $users = $manager->getAll();
+
+        $message = isset($_GET['message']) ? $_GET['message'] : null;
 
         $this->display('user/listing', [
-            'users' => $manager->getAll()
+            'users' => $users,
+            'message' => $message
         ]);
     }
 
@@ -50,6 +60,20 @@ class UserController extends AbstractController
 //        }
 //    }
 
+//    public function delete($id)
+//    {
+//        $manager = new UserManager();
+//        $deleted = $manager->deleteUserById($id);
+//
+//        if ($deleted) {
+//            $message = "L'utilisateur a été supprimé avec succès.";
+//            $this->display('user/listing', ['message' => $message]);
+//        } else {
+//            $message = "Une erreur s'est produite lors de la suppression de l'utilisateur.";
+//            $this->display('user/listing', ['message' => $message]);
+//        }
+//    }
+
     public function delete($id)
     {
         $manager = new UserManager();
@@ -57,11 +81,13 @@ class UserController extends AbstractController
 
         if ($deleted) {
             $message = "L'utilisateur a été supprimé avec succès.";
-            $this->display('user/listing', ['message' => $message]);
         } else {
             $message = "Une erreur s'est produite lors de la suppression de l'utilisateur.";
-            $this->display('user/listing', ['message' => $message]);
         }
+
+        // Rediriger vers la page du listing des utilisateurs avec le message
+        header("Location: /user?message=" . urlencode($message));
+        exit();
     }
 
 }

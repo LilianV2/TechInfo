@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Goldman&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Wallpoet&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -291,7 +290,7 @@ header .burger-menu .burger-body ul li a#title {
 }
 
 .comment {
-  margin-top: 5rem;
+  margin-top: 13rem;
   width: 100%;
   height: 90rem;
   display: flex;
@@ -564,7 +563,6 @@ header .burger-menu .burger-body ul li a#title {
   flex-direction: column;
   justify-content: center;
   width: 95%;
-  height: 100%;
   background: #ffffff;
   font-size: 2rem;
   margin-top: 10rem;
@@ -709,6 +707,46 @@ header .burger-menu .burger-body ul li a#title {
   margin-left: 8rem;
 }
 
+#list {
+  font-size: 2rem;
+  background: #b5d1c8;
+  width: 70%;
+  border-radius: 9px;
+  padding: 3rem;
+}
+#list .box-list {
+  background: rgba(238, 255, 250, 0.87);
+  border-radius: 9px 0 9px 0;
+  padding: 3rem;
+}
+#list .box-list thead {
+  background: #b5d1c8;
+}
+#list .box-list thead tr th {
+  padding: 1rem;
+}
+#list .box-list table {
+  margin: 1rem;
+  width: 100%;
+}
+#list .box-list table tbody tr td {
+  text-align: center;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 4px 0 4px 0;
+}
+#list .footer-list {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  width: 90%;
+}
+#list .footer-list a {
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 7px;
+}
+
 footer {
   height: 5%;
   background: #ffffff;
@@ -748,4 +786,3 @@ footer .last-footer p i.fa-brands:hover {
 }
 
 /*# sourceMappingURL=style.css.map */
-
