@@ -14,7 +14,6 @@ $router->map('GET', '/', 'RootController#index', 'root');
 $router->map('GET', '/user', 'UserController#index', 'user');
 $router->map('GET', '/user/delete/[i:id]', 'UserController#delete', 'user_delete');
 
-
 $router->map('POST', '/articles/createArticles', 'AdminController#createArticles', 'create');
 $router->map('GET', '/article', 'ArticlesController#index', 'view_com');
 
@@ -35,17 +34,8 @@ $router->map('GET', '/articles/delete/[i:id]', 'AdminController#deleteArticle', 
 $router->map('GET', '/articles/view/', 'ArticlesPcController#view', 'view');
 $router->map('GET', '/articles', 'ArticlesPcController#index', 'viewArticlePc');
 
-
-
-
-//$router->map('GET', '/removeCart/[i:id]', 'CartController#removeToCart', 'removeToCart');
-//$router->map('GET', '/cart/addToCart/[i:id]', 'CartController#addToCart', 'addToCart');
-
-
-
-
-
-
+$router->map('GET', '/removeCart/[i:id]', 'CartController#removeToCart', 'removeToCart');
+$router->map('GET', '/cart/addToCart/[i:id]', 'CartController#addToCart', 'addToCart');
 
 
 // Fonction
