@@ -3,6 +3,7 @@ use App\Model\Entity\ArticlePc;
 ?>
 
 <section class="article-container">
+    <!--
     <div class="top-articles">
         <div>
             <h1>Meilleures ventes</h1>
@@ -14,6 +15,7 @@ use App\Model\Entity\ArticlePc;
             <div class="small-card"></div>
         </div>
     </div>
+    -->
     <?php
     foreach ($params['articles'] as $article) {
         /* @var ArticlePc $article */
@@ -24,9 +26,13 @@ use App\Model\Entity\ArticlePc;
                 <hr>
                 <p>(image)</p>
                 <hr>
+
                 <p>Prix : <?= $article->getPrice() ?> €</p>
+
                 <hr>
+
                 <a href="/cart/addToCart/<?= $article->getId() ?>">Ajouter à la sélection</a>
+
             </div>
         </div>
         <?php
